@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Capítulo 19: Discernimiento | El Lugar de Su Presencia</title>
+    
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #F4F1EA;
+            color: #1E293B;
+            line-height: 1.5;
+            -webkit-tap-highlight-color: transparent;
+            padding-bottom: 95px;
+        }
+        header {
+            background: linear-gradient(135deg, #0F294A 0%, #1E293B 50%, #7C2D12 100%);
+            color: #ffffff;
+            padding: 22px 16px;
+            text-align: center;
+            border-bottom: 4px solid #C2410C;
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        header h1 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin: 6px 0 2px 0;
+            color: #ffffff;
+            line-height: 1.25;
+        }
+        header p {
+            font-size: 0.8rem;
+            color: #FED7AA;
+            font-weight: 300;
+        }
+        .badge {
+            display: inline-block;
+            background-color: rgba(217, 119, 6, 0.25);
+            color: #FDE68A;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(217, 119, 6, 0.4);
+        }
+        main {
+            max-width: 720px;
+            margin: 16px auto;
+            padding: 0 12px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #E2E8F0;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        }
+        .card h2, .card h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0F294A;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .info-box {
+            background: linear-gradient(90deg, #EFF6FF 0%, #FFF7ED 100%);
+            border-left: 4px solid #C2410C;
+            padding: 12px;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.8rem;
+            color: #1E293B;
+            margin-top: 10px;
+        }
+        label {
+            display: block;
+            font-size: 0.825rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 4px;
+            line-height: 1.35;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid #CBD5E1;
+            font-size: 16px !important; /* Previene auto-zoom en navegadores móviles */
+            background-color: #FAFAFA;
+            margin-top: 4px;
+            margin-bottom: 8px;
+            font-family: inherit;
+        }
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #C2410C;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(194, 65, 12, 0.15);
+        }
+        .radio-tile-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .radio-tile {
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            background-color: #FAFAFA;
+            font-size: 0.825rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 48px;
+        }
+        .radio-tile input { accent-color: #C2410C; }
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #E2E8F0;
+            background-color: #FAFAFA;
+            margin-bottom: 6px;
+            font-size: 0.78rem;
+        }
+        .checkbox-item input {
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            accent-color: #C2410C;
+        }
+        .btn-whatsapp {
+            width: 100%;
+            background-color: #059669;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+            text-decoration: none;
+        }
+        .btn-whatsapp:active {
+            transform: scale(0.98);
+        }
+        .sticky-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(8px);
+            padding: 10px 14px;
+            border-top: 1px solid #334155;
+            z-index: 50;
+        }
+        #toast {
+            position: fixed;
+            bottom: 80px;
+            left: 16px;
+            right: 16px;
+            background-color: #0F172A;
+            color: #ffffff;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid #334155;
+            display: none;
+            z-index: 100;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="badge">
+            <i class="fa-solid fa-users"></i> Grupo de Conexión
+        </div>
+        <h1>Taller de Matrimonios: "Amor y Respeto"</h1>
+        <p>Iglesia El Lugar de Su Presencia &bull; Red de Parejas con Hijos Adultos</p>
+        <div style="margin-top: 8px; font-size: 0.725rem; color: #FDE68A; opacity: 0.9;">
+            <span><i class="fa-regular fa-bookmark"></i> Sección Once: Cap. 19</span> &bull; 
+            <span><i class="fa-solid fa-lightbulb text-amber-400"></i> "Discernimiento & Intuición"</span>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="card">
+            <h2>
+                <span><i class="fa-solid fa-scale-balanced" style="color: #C2410C;"></i> SECCIÓN ONCE: CAPÍTULO 19</span>
+            </h2>
+            <p style="font-size: 0.825rem; color: #334155; margin-bottom: 8px;">
+                <strong>“Discernimiento: valore su deseo de analizar y aconsejar”.</strong> Un matrimonio saludable y maduro necesita la <strong>Intuición</strong> de ella y el <strong>Discernimiento</strong> de él.
+            </p>
+            <div class="info-box">
+                <p style="font-weight: 700; color: #0F294A;">💡 Principio Clave:</p>
+                <p>Ninguno de los dos es infalible por sí solo. El verdadero poder está en unir la sensibilidad con el análisis en sumisión a Cristo.</p>
+            </div>
+        </div>
+
+        <form id="evaluationForm" onsubmit="event.preventDefault();">
+
+            <!-- DATOS DE REGISTRO -->
+            <div class="card">
+                <h3>
+                    <span>Datos de Registro</span>
+                    <span style="font-size: 0.7rem; color: #C2410C;">* Obligatorio</span>
+                </h3>
+
+                <div style="margin-bottom: 12px;">
+                    <label>Usted es: *</label>
+                    <div class="radio-tile-group">
+                        <label class="radio-tile">
+                            <input type="radio" name="rol" value="Esposo" required> Esposo (Azul)
+                        </label>
+                        <label class="radio-tile">
+                            <input type="radio" name="rol" value="Esposa" required> Esposa (Rosa)
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="nombre">Tu Nombre Completo *</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre y apellido...">
+                </div>
+
+                <div>
+                    <label for="conyuge">Nombre de tu Cónyuge *</label>
+                    <input type="text" id="conyuge" name="conyuge" required placeholder="Nombre de tu cónyuge...">
+                </div>
+            </div>
+
+            <!-- PREGUNTAS CAPÍTULO 19 -->
+            <div class="card">
+                <h3 style="color: #9A3412; border-bottom: 1px solid #FED7AA; padding-bottom: 6px;">
+                    Preguntas del Capítulo 19
+                </h3>
+
+                <!-- P1 -->
+                <div style="margin-bottom: 16px;">
+                    <label>1. En la historia de la <strong>Esposa</strong> que decide visitar a su <strong>Esposo</strong> donde él trabaja: ¿Qué es lo que aprende? ¿Qué ha estado pasando por alto? (Comparen sus respuestas):</label>
+                    <textarea name="q1" rows="2" placeholder="Escriban sus observaciones..."></textarea>
+                </div>
+
+                <!-- P2 -->
+                <div style="margin-bottom: 16px;">
+                    <label>2. “Ya no creo totalmente en la intuición femenina”. Emerson creía que las mujeres poseían un poder de intuición único y que siempre estaban en lo cierto. ¿Por qué cambió de opinión? Marque una respuesta y escriba su propia opinión:</label>
+                    <div style="display: grid; gap: 6px; font-size: 0.78rem; margin-top: 6px;">
+                        <label><input type="radio" name="q2_opcion" value="A. Se dio cuenta de que las mujeres a las que aconsejaba daban una opinión muy parcial."> A. Se dio cuenta de que las mujeres a las que aconsejaba daban una opinión muy parcial.</label>
+                        <label><input type="radio" name="q2_opcion" value="B. Se dio cuenta de que insistir a los hombres con que “escuchar la intuición de sus Esposas… Dios les enseñaba a través de sus Esposas” era inclinar demasiado la balanza hacia ellas."> B. Se dio cuenta de que insistir a los hombres con que “escuchar la intuición de sus Esposas… Dios les enseñaba a través de sus Esposas” era inclinar demasiado la balanza hacia ellas.</label>
+                    </div>
+                    <p style="font-size: 0.75rem; color: #64748B; margin-top: 6px;">C. Mi opinión:</p>
+                    <textarea name="q2_opinion" rows="2" placeholder="Escriba su opinión..."></textarea>
+                </div>
+
+                <!-- P3 -->
+                <div style="margin-bottom: 16px;">
+                    <label>3. “Fue Eva quien fue engañada, no Adán”. ¿De qué modo muestra Génesis 3:1-6 que las <strong>Esposas</strong> jamás deberían sentir que tienen que estar listas con todas las respuestas y hacer todas las reflexiones?</label>
+                    <textarea name="q3" rows="2" placeholder="Escriba su respuesta bíblica..."></textarea>
+                </div>
+
+                <!-- P4 -->
+                <div style="margin-bottom: 16px;">
+                    <label>4. ¿De qué forma 1 Timoteo 2:14 arroja luz sobre esta discusión? Hablen del hecho de que ninguno de ustedes es infalible; ambos tienen igual peso en las decisiones familiares:</label>
+                    <div style="display: grid; gap: 6px; font-size: 0.78rem; margin-top: 6px;">
+                        <label><input type="radio" name="q4_puntuacion" value="A. Ambos participamos en la toma de decisiones."> A. Ambos participamos en la toma de decisiones.</label>
+                        <label><input type="radio" name="q4_puntuacion" value="B. La Esposa tiene mucho más que decir y hacer en lo que concierne a la familia."> B. La <strong>Esposa</strong> tiene mucho más que decir y hacer en lo que concierne a la familia.</label>
+                        <label><input type="radio" name="q4_puntuacion" value="C. El Esposo toma la mayoría de las decisiones."> C. El <strong>Esposo</strong> toma la mayoría de las decisiones.</label>
+                    </div>
+                    <p style="font-size: 0.75rem; color: #64748B; margin-top: 6px;">D. Mi opinión:</p>
+                    <textarea name="q4_opinion" rows="2" placeholder="Escriba su opinión..."></textarea>
+                </div>
+
+                <!-- P5 -->
+                <div style="margin-bottom: 16px;">
+                    <label>5. “Un matrimonio necesita la intuición de ella y el discernimiento de él”. Emerson menciona un área en la que cree que algunas mujeres hoy se están engañando a sí mismas: las críticas a sus maridos por falta de liderazgo espiritual y en la familia. Marque con las que está de acuerdo:</label>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="q5_items" value="A. Esposas: “Sus convicciones pueden agradar a Dios, pero su desdén también puede entristecerlo”.">
+                        <span>A. <strong>Esposas:</strong> “Sus convicciones pueden agradar a Dios, pero su desdén también puede entristecerlo”.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="q5_items" value="B. El problema de “falta de liderazgo espiritual por parte del Esposo” no aplica a mi matrimonio.">
+                        <span>B. El problema de “falta de liderazgo espiritual por parte del <strong>Esposo</strong>” no aplica a mi matrimonio.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="q5_items" value="C. Como Esposo, si está ejerciendo el liderazgo espiritual, gócese en ello con su Esposa.">
+                        <span>C. Como <strong>Esposo</strong>, si está ejerciendo el liderazgo espiritual, gócese en ello con su <strong>Esposa</strong>.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="q5_items" value="D. Como Esposa, si desea que su Esposo ejerza mayor liderazgo espiritual, primero pregúntele si le molestaría tratar el tema. Y si está de acuerdo, ambos deberíamos planear cómo nos gustaría.">
+                        <span>D. Como <strong>Esposa</strong>, si desea que su <strong>Esposo</strong> ejerza mayor liderazgo espiritual, primero pregúntele con amor y planeen juntos el proceso.</span>
+                    </div>
+                </div>
+
+                <!-- P6 -->
+                <div style="margin-bottom: 16px;">
+                    <label>6. ¿Alguna de las siguientes afirmaciones que Emerson hace se aplica a su matrimonio? Escriba sus reflexiones:</label>
+                    
+                    <p style="font-size: 0.75rem; color: #334155; margin-top: 6px;">• A. Pregúntese si podría ser que usted, Esposa, tuviera una actitud de pretendida superioridad moral... ¿creyendo que es mejor persona que él y que él necesita cambiar?</p>
+                    <textarea name="q6_a" rows="1" placeholder="Mis reflexiones..."></textarea>
+
+                    <p style="font-size: 0.75rem; color: #334155; margin-top: 6px;">• B. “Lo que veo en mi matrimonio es que mi Esposa cree —o parece creer— que ella no peca, salvo al reaccionar negativamente a mis fallas como Esposo”:</p>
+                    <textarea name="q6_b" rows="1" placeholder="Mis reflexiones..."></textarea>
+
+                    <p style="font-size: 0.75rem; color: #334155; margin-top: 6px;">• C. “A mi Esposa le resulta fácil pasar por alto o menospreciar mis sugerencias sobre que ella tiene un problema necesario de corregir, aunque yo sea amable”:</p>
+                    <textarea name="q6_c" rows="1" placeholder="Mis reflexiones..."></textarea>
+
+                    <p style="font-size: 0.75rem; color: #334155; margin-top: 6px;">• D. “Soy silenciado rápidamente cuando digo que es necesario hacer una corrección; ella se ofende, se enoja y termino por no decir nada más”:</p>
+                    <textarea name="q6_d" rows="1" placeholder="Mis reflexiones..."></textarea>
+                </div>
+
+                <!-- P7 -->
+                <div style="margin-bottom: 16px;">
+                    <label>7. “¿Está usted Esposa tratando de ser el Espíritu Santo para su Esposo?” (No hay vacante en la Trinidad). Marque con cuál de estas afirmaciones se identifica en su matrimonio:</label>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="q7_items" value="A. En su matrimonio, la Esposa ve a su Esposo como injusto.">
+                        <span>A. En su matrimonio, la <strong>Esposa</strong> ve a su <strong>Esposo</strong> como injusto.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="q7_items" value="B. La Esposa tiene que estar constantemente encima de las cosas (corregir hijos y esposo), deslizándose hacia una actitud de fariseísmo.">
+                        <span>B. La <strong>Esposa</strong> siente que debe estar constantemente encima de todo, deslizándose hacia una actitud de fariseísmo.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="q7_items" value="C. La Esposa suele ser subconsciente, pero un sutil espíritu de crítica viene sobre ella.">
+                        <span>C. Aunque sea subconsciente, un sutil espíritu de crítica viene sobre la <strong>Esposa</strong>.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="q7_items" value="D. Las Esposas han admitido: “Tengo que dejar de ser el Espíritu Santo para mi Esposo”.">
+                        <span>D. La <strong>Esposa</strong> admite: “Tengo que dejar de ser el Espíritu Santo para mi <strong>Esposo</strong>”.</span>
+                    </div>
+                </div>
+
+                <!-- P9 (Numeración original del libro) -->
+                <div>
+                    <label>8. Su <strong>Esposo</strong> sentirá que usted <strong>Esposa</strong> aprecia su consejo y discernimiento cuando:</label>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="q9_items" value="A. Usted le agradezca a su Esposo el consejo sin ofenderse o actuar como si a él no le importaran sus sentimientos.">
+                        <span>A. Le agradezca a su <strong>Esposo</strong> el consejo sin ofenderse ni actuar como si a él no le importaran sus sentimientos.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="q9_items" value="B. Usted reconozca que el enfoque de su Esposo para resolver problemas es el modo masculino.">
+                        <span>B. Reconozca que el enfoque de su <strong>Esposo</strong> para resolver problemas es el modo analítico masculino.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="q9_items" value="C. Usted se dé cuenta de su vulnerabilidad entre hombres y valore su protección.">
+                        <span>C. Se dé cuenta de su vulnerabilidad en el mundo laboral y valore su protección.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="q9_items" value="D. Usted lo aconseje respetuosamente con sus ideas: puede tener razón pero estar equivocada a los gritos.">
+                        <span>D. Lo aconseje respetuosamente: "Usted puede tener la razón, pero estar equivocada si lo exige a los gritos".</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="q9_items" value="E. Usted le permita arreglar cosas y aplauda sus soluciones.">
+                        <span>E. Le permita arreglar cosas y aplauda sus soluciones prácticas.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="q9_items" value="F. Usted le haga saber que Dios los ha hecho hombre y mujer con un propósito y que nos necesitamos mutuamente.">
+                        <span>F. Le haga saber que Dios los hizo complementarios y que se necesitan mutuamente.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="q9_items" value="G. Usted admita que puede pecar y agradezca su consejo piadoso.">
+                        <span>G. Admita con humildad que puede equivocarse y agradezca su consejo piadoso.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ENVÍO PARA WHATSAPP -->
+            <div class="card" style="background-color: #0F172A; color: #ffffff; border-color: #334155;">
+                <h3 style="color: #34D399; border-bottom-color: #1E293B;">
+                    <span><i class="fa-brands fa-whatsapp"></i> Envío para WhatsApp</span>
+                </h3>
+                <p style="font-size: 0.78rem; color: #CBD5E1; margin-bottom: 12px;">
+                    Al terminar, presiona el botón para copiar tus respuestas con formato especial y abrir directamente tu chat de WhatsApp para el Grupo de Cuatro.
+                </p>
+
+                <button type="button" class="btn-whatsapp" onclick="handleWhatsAppSubmission()">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i> Copiar y Enviar a WhatsApp
+                </button>
+            </div>
+
+        </form>
+
+    </main>
+
+    <!-- Barra flotante móvil -->
+    <div class="sticky-bottom-bar">
+        <button type="button" class="btn-whatsapp" onclick="handleWhatsAppSubmission()">
+            <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i>
+            <span>Copiar y Enviar a WhatsApp</span>
+        </button>
+    </div>
+
+    <!-- Notificación Toast -->
+    <div id="toast">
+        <i id="toastIcon" class="fa-solid fa-circle-check" style="color: #34D399; font-size: 1.2rem;"></i>
+        <span id="toastMsg">Mensaje...</span>
+    </div>
+
+    <script>
+        function getFormData() {
+            const form = document.getElementById('evaluationForm');
+            const formData = new FormData(form);
+
+            const q5Checked = [];
+            document.querySelectorAll('input[name="q5_items"]:checked').forEach(cb => q5Checked.push(cb.value));
+
+            const q7Checked = [];
+            document.querySelectorAll('input[name="q7_items"]:checked').forEach(cb => q7Checked.push(cb.value));
+
+            const q9Checked = [];
+            document.querySelectorAll('input[name="q9_items"]:checked').forEach(cb => q9Checked.push(cb.value));
+
+            return {
+                fecha: new Date().toLocaleString('es-CO'),
+                rol: formData.get('rol') || '',
+                nombre: formData.get('nombre') || '',
+                conyuge: formData.get('conyuge') || '',
+                q1: formData.get('q1') || '',
+                q2_opcion: formData.get('q2_opcion') || '',
+                q2_opinion: formData.get('q2_opinion') || '',
+                q3: formData.get('q3') || '',
+                q4_puntuacion: formData.get('q4_puntuacion') || '',
+                q4_opinion: formData.get('q4_opinion') || '',
+                q5_items: q5Checked.join('\n   • '),
+                q6_a: formData.get('q6_a') || '',
+                q6_b: formData.get('q6_b') || '',
+                q6_c: formData.get('q6_c') || '',
+                q6_d: formData.get('q6_d') || '',
+                q7_items: q7Checked.join('\n   • '),
+                q9_items: q9Checked.join('\n   • ')
+            };
+        }
+
+        function validateForm(data) {
+            if (!data.rol) {
+                showToast("Por favor seleccione si es Esposo o Esposa.", "error");
+                return false;
+            }
+            if (!data.nombre.trim()) {
+                showToast("Por favor ingrese su Nombre Completo.", "error");
+                document.getElementById('nombre').focus();
+                return false;
+            }
+            if (!data.conyuge.trim()) {
+                showToast("Por favor ingrese el Nombre de su Cónyuge.", "error");
+                document.getElementById('conyuge').focus();
+                return false;
+            }
+            return true;
+        }
+
+        function buildFormattedMessage(data) {
+            let text = `*GRUPO DE CONEXIÓN*\n`;
+            text += `*Iglesia El Lugar de Su Presencia*\n`;
+            text += `📖 *Sección 11: Cap. 19 (Discernimiento e Intuición)*\n`;
+            text += `──────────────────────\n`;
+            text += `👤 *Participante:* ${data.nombre} (${data.rol})\n`;
+            text += `💍 *Cónyuge:* ${data.conyuge}\n`;
+            text += `📅 *Fecha:* ${data.fecha}\n`;
+            text += `──────────────────────\n\n`;
+            text += `*RESPUESTAS:*\n\n`;
+            text += `*1. Visita al trabajo:* ${data.q1 || 'S/R'}\n\n`;
+            text += `*2. Intuición femenina:*\n   • Opción: ${data.q2_opcion || 'S/R'}\n   • Opinión: ${data.q2_opinion || 'S/R'}\n\n`;
+            text += `*3. Génesis 3:1-6 (Eva no infalible):* ${data.q3 || 'S/R'}\n\n`;
+            text += `*4. 1 Timoteo 2:14 (Toma de decisiones):*\n   • Postura: ${data.q4_puntuacion || 'S/R'}\n   • Opinión: ${data.q4_opinion || 'S/R'}\n\n`;
+            text += `*5. Crítica y liderazgo espiritual:*\n   • ${data.q5_items || 'Ninguna seleccionada'}\n\n`;
+            text += `*6. Evaluaciones personales:*\n`;
+            text += `   • A (Superioridad moral): ${data.q6_a || 'S/R'}\n`;
+            text += `   • B (No admitir pecado propio): ${data.q6_b || 'S/R'}\n`;
+            text += `   • C (Menospreciar sugerencias): ${data.q6_c || 'S/R'}\n`;
+            text += `   • D (Silenciado ante corrección): ${data.q6_d || 'S/R'}\n\n`;
+            text += `*7. ¿Espíritu Santo para el cónyuge?:\n   • ${data.q7_items || 'Ninguna seleccionada'}\n\n`;
+            text += `*8. Apreciar consejo y discernimiento:*\n   • ${data.q9_items || 'Ninguna seleccionada'}\n\n`;
+            text += `*Principio Bíblico:* "Un matrimonio necesita la intuición de ella y el discernimiento de él. Ninguno de los dos es infalible por sí solo."`;
+            return text;
+        }
+
+        async function copyToClipboardFallback(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                try {
+                    await navigator.clipboard.writeText(text);
+                    return true;
+                } catch (err) {
+                    console.warn("Fallo navigator.clipboard, recurriendo a fallback...", err);
+                }
+            }
+
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            textArea.setSelectionRange(0, 99999);
+
+            let successful = false;
+            try {
+                successful = document.execCommand("copy");
+            } catch (err) {
+                successful = false;
+            }
+            document.body.removeChild(textArea);
+            return successful;
+        }
+
+        async function handleWhatsAppSubmission() {
+            const data = getFormData();
+            if (!validateForm(data)) return;
+
+            const textMessage = buildFormattedMessage(data);
+            const copied = await copyToClipboardFallback(textMessage);
+
+            if (copied) {
+                showToast("¡Respuestas copiadas! Abriendo WhatsApp...", "success");
+            } else {
+                showToast("Abriendo WhatsApp para compartir...", "info");
+            }
+
+            setTimeout(() => {
+                const encodedText = encodeURIComponent(textMessage);
+                window.location.href = `https://api.whatsapp.com/send?text=${encodedText}`;
+            }, 1200);
+        }
+
+        function showToast(msg, type = "success") {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toastMsg.innerText = msg;
+            if (type === "success") {
+                toastIcon.className = "fa-solid fa-circle-check";
+                toastIcon.style.color = "#34D399";
+            } else if (type === "error") {
+                toastIcon.className = "fa-solid fa-triangle-exclamation";
+                toastIcon.style.color = "#F87171";
+            } else {
+                toastIcon.className = "fa-solid fa-circle-info";
+                toastIcon.style.color = "#60A5FA";
+            }
+
+            toast.style.display = "flex";
+            setTimeout(() => { toast.style.display = "none"; }, 3500);
+        }
+    </script>
+</body>
+</html>
